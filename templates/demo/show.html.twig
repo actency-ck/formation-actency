@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+    <h1>My Task</h1>
+<h3>    {{ task.name }}</h3>
+<h3>    {{ task.duDate|date('d-m-Y') }}</h3>
+    <img src="{{ asset('uploads/images/'~task.image) }}">
+    <a href="{{ path('add') }}">Editer</a>
+    {% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('delete', {id:task.id}) }}">Supprimer</a>
+    {% endif %}
+{% endblock %}

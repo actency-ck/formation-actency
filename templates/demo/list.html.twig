@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+    <h1>{% trans %}hello{% endtrans %}</h1>
+
+    <table border="1">
+        {% for task in tasks %}
+            <tr>
+                <td>{{ task.name }}</td>
+                <td>{{ task.dueDate|date('Y-m-d') }}</td>
+                <td><a href="{{ path('edit', {id:task.id}) }}">Edit</a></td>
+                <td><a href="{{ path('delete', {id:task.id}) }}">Delete</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

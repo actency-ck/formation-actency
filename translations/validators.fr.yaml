@@ -1,0 +1,2 @@
+task.validator.min_length {{ limit }}, task.validator.min_length.value {{ value }}: Attention minimum {{ limit }} caractères, vous avez mis {{ value }} !
+

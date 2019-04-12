@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+    {% for message in app.flashes('danger') %}
+        <div class="alert alert-danger">
+            {{ message }}
+        </div>
+    {% endfor %}
+<h1>Formulaire Task</h1>
+    {{ form_start(form) }}
+
+    {{ form_widget(form.name, {attr: {'class': 'myClass'}} ) }}
+    {{ form_errors(form.name) }}
+    {{ form_end(form) }}
+
+{% endblock %}
